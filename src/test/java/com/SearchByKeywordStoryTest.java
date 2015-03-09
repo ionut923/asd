@@ -52,6 +52,7 @@ public class SearchByKeywordStoryTest {
     	endUser.enter_username("malu.ioan1");
     	endUser.enter_password("evoportal");
     	endUser.login_click();
+    	endUser.vacation_button_pressed();
     	
     	
     	

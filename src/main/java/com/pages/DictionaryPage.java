@@ -33,9 +33,16 @@ public class DictionaryPage extends PageObject {
 
     @FindBy(css="[type='submit']")
     private WebElementFacade loginButton;
+    
+    @FindBy(id="aui_3_4_0_1_293")
+    private WebElementFacade vacation_button;
 
     public void enter_username(String username) {
     	userInput.sendKeys(username);
+    }
+    
+    public void vacation_press(){
+    	vacation_button.click();
     }
      
     public void press_sign_in()

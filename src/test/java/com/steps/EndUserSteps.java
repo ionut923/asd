@@ -30,6 +30,11 @@ public class EndUserSteps extends ScenarioSteps {
     	
     }
     
+    @Step
+    public void vacation_button_pressed(){
+    	dictionaryPage.vacation_press();
+    }
+    
     @Step	
     public void login_click(){
     	
