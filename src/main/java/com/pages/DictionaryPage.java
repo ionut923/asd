@@ -20,6 +20,11 @@ import static ch.lambdaj.Lambda.convert;
 //@DefaultUrl("http://192.168.1.68:9090/login")
 public class DictionaryPage extends PageObject {
 
+	
+	@FindBy(id="sign-in")
+	 private WebElementFacade Sign_in_button;
+	
+	
     @FindBy(id="_58_login")
     private WebElementFacade userInput;
     
@@ -31,6 +36,13 @@ public class DictionaryPage extends PageObject {
 
     public void enter_username(String username) {
     	userInput.sendKeys(username);
+    }
+     
+    public void press_sign_in()
+    {
+    	Sign_in_button.click();
+    	
+    	
     }
     public void enter_password(String password) {
         passwordInput.sendKeys(password);

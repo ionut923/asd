@@ -24,8 +24,15 @@ public class EndUserSteps extends ScenarioSteps {
     	dictionaryPage.enter_password(password);
     }
     
+    @Step
+    public void sign_in(){
+    	dictionaryPage.press_sign_in();
+    	
+    }
+    
     @Step	
     public void login_click(){
+    	
     	dictionaryPage.login_click();
     	
     	

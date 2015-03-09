@@ -23,9 +23,11 @@ public class SearchByKeywordStoryTest {
     @Managed(uniqueSession = true)
     public WebDriver webdriver;
 
-    @ManagedPages(defaultUrl = "http://192.168.1.68:9090/login")
+    @ManagedPages(defaultUrl = "http://192.168.1.68:9090")
     public Pages pages;
-
+    
+  
+    
     @Steps
     public EndUserSteps endUser;
 
@@ -44,7 +46,9 @@ public class SearchByKeywordStoryTest {
     
     @Test 
     public void login_action(){
+    	
     	endUser.is_the_home_page();
+    	endUser.sign_in();
     	endUser.enter_username("malu.ioan1");
     	endUser.enter_password("evoportal");
     	endUser.login_click();
