@@ -34,12 +34,25 @@ public class DictionaryPage extends PageObject {
     @FindBy(css="[type='submit']")
     private WebElementFacade loginButton;
     
-    @FindBy(id="aui_3_4_0_1_293")
+    @FindBy(css= "ul[class='main-menu'] a[ href *='vacation']")
     private WebElementFacade vacation_button;
+    
+    @FindBy(css = "div[class *='content-first'] div[class='column-content'] > span")
+    private List<WebElement> vacationTypeList;
 
     public void enter_username(String username) {
     	userInput.sendKeys(username);
     }
+    
+   /* public void selectVacationTypeList(String option){
+    	boolean found = false;
+    	for(WebElement vacatioType : vacationTypeList){
+    		if(vacatioType.getText().toLowerCase().contains(option.toLowerCase())){
+    			WebElement vacationTypeCheckBox = getDriver().findElement(By.cssSelector(""));
+    		}
+    		
+    	}
+    }*/
     
     public void vacation_press(){
     	vacation_button.click();

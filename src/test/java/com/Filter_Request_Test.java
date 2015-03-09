@@ -21,47 +21,30 @@ import com.steps.MyRequestSteps;
 @RunWith(ThucydidesRunner.class)
 public class Filter_Request_Test {
 
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
+	@Managed(uniqueSession = true)
+	public WebDriver webdriver;
 
-    @ManagedPages(defaultUrl = "http://192.168.1.68:9090")
-    public Pages pages;
-    
-  
-    
-    @Steps
-    public EndUserSteps endUser;
+	@ManagedPages(defaultUrl = "http://192.168.1.68:9090")
+	public Pages pages;
 
-    @Steps
-    public MyRequestSteps myRequest;
-    
-    @Test 
-    public void login_action(){
-    	
-    	endUser.is_the_home_page();
-    	endUser.sign_in();
-    	endUser.enter_username("malu.ioan1");
-    	endUser.enter_password("evoportal");
-    	endUser.login_click();
-    	endUser.vacation_button_pressed();
-    	myRequest.myRequestPageClick();
-    	myRequest.applyButtonClick();
-    	myRequest.checkboxFutureVacations();
-    	
-    	
-    	
-    }
-    
-    
-   /* @Test
-    public void searching_by_keyword_banana_should_display_the_corresponding_article() {
-        endUser.is_the_home_page();
-		endUser.looks_for("pear");
-		endUser.should_see_definition("An edible fruit produced by the pear tree, similar to an apple but elongated towards the stem.");
-    }
+	@Steps
+	public EndUserSteps endUser;
 
-    @Pending @Test
-    public void searching_by_ambiguious_keyword_should_display_the_disambiguation_page() {
-    }
-    */
-} 
+	@Steps
+	public MyRequestSteps myRequest;
+
+	@Test
+	public void requestsFilterTest() {
+		endUser.is_the_home_page();
+		endUser.sign_in();
+		endUser.enter_username("malu.ioan1");
+		endUser.enter_password("evoportal");
+		endUser.login_click();
+		endUser.vacation_button_pressed();
+		myRequest.myRequestPageClick();
+		myRequest.checkboxFutureVacations();
+		myRequest.applyButtonClick();
+
+	}
+
+}

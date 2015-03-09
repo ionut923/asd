@@ -1,24 +1,26 @@
 package com.pages;
 
+import net.thucydides.core.annotations.findby.FindBy;
+import net.thucydides.core.pages.WebElementFacade;
 import ch.lambdaj.function.convert.Converter;
 import net.thucydides.core.annotations.DefaultUrl;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
+import com.gargoylesoftware.htmlunit.javascript.host.Element;
+
 import net.thucydides.core.pages.WebElementFacade;
-
 import net.thucydides.core.annotations.findby.FindBy;
-
 import net.thucydides.core.pages.PageObject;
 
 import java.util.List;
 
-import static ch.lambdaj.Lambda.convert;
+public class MyRequestPage extends PageObject{
 
-public class MyRequestPage {
-
-	@FindBy(css = "li[class='active-menu'] > a")
+	@FindBy(css = "[href*='menuItem=my-requests']")
 	private WebElementFacade myRequest_Button;
 
 	@FindBy(css = "input[id $='VacationsCheckbox']")
@@ -33,6 +35,7 @@ public class MyRequestPage {
 	}
 
 	public void myRequestPageClick() {
+		myRequest_Button.waitUntilVisible();
 		myRequest_Button.click();
 	}
 	
