@@ -38,7 +38,7 @@ public class DictionaryPage extends PageObject {
     
     public void login_click() {
         loginButton.click();
-        System.out.println("omg");
+        System.out.println("odsadfasdas");
     }
 
   /*
