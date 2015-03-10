@@ -37,7 +37,7 @@ public class InboxTest {
 	
 
 	@Test
-	public void requestsFilterTest() {
+	public void inbox_request_numbers() {
 		endUser.is_the_home_page();
 		endUser.sign_in();
 		endUser.enter_username("bojte.tamas");
@@ -48,4 +48,6 @@ public class InboxTest {
 		inSteps.selectLinkFromRibbon("b");
 		
 	}
+	
+	
 }
