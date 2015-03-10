@@ -1,0 +1,5 @@
+Vacation_Type,Days_Number,Vacation_Status
+Holiday,1 - 5,Pending
+,,Pending
+Holiday,6 - 10,Withdrawn
+Special Vacation,,Sick Leave

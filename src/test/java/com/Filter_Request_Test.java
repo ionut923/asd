@@ -7,6 +7,8 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.junit.annotations.UseTestDataFrom;
+import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 import net.thucydides.junit.runners.ThucydidesRunner;
 
 import org.junit.Test;
@@ -18,9 +20,14 @@ import com.steps.EndUserSteps;
 import com.steps.MyRequestSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
-@RunWith(ThucydidesRunner.class)
+@RunWith(ThucydidesParameterizedRunner.class)
+@UseTestDataFrom("Resources/filters.csv")
 public class Filter_Request_Test {
 
+	
+	
+String Vacation_Type, Days_Number, Vacation_Status ;
+	
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
@@ -43,6 +50,12 @@ public class Filter_Request_Test {
 		endUser.vacation_button_pressed();
 		myRequest.myRequestPageClick();
 		myRequest.checkboxFutureVacations();
+		myRequest.selectFilterItem(Vacation_Type);
+		myRequest.selectFilterItem(Days_Number);
+		myRequest.selectFilterItem(Vacation_Status);
+		/*myRequest.selectVacationTypeList(Vacation_Type);
+		myRequest.selectVacationsDaysNumber(Days_Number);
+		myRequest.selectVacationStatus(Vacation_Status);*/
 		myRequest.applyButtonClick();
 
 	}
