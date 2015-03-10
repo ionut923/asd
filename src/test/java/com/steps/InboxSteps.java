@@ -1,10 +1,15 @@
 package com.steps;
 
+
+
+import org.junit.Assert;
+
 import com.pages.InboxPage;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
 
+@SuppressWarnings("serial")
 public class InboxSteps extends ScenarioSteps {
 
 	InboxPage inboxstep;
@@ -14,13 +19,17 @@ public class InboxSteps extends ScenarioSteps {
 		inboxstep.InboxButtonPressed();
 
 	}
+
+	
+
+	@SuppressWarnings("deprecation")
 	@Step
-	public void  selectLinkFromRibbon(String filter){
-		inboxstep.selectLinkFromRibbon(filter);
+	public void select_the_value_from_inbox(String filter) {
 		
-	}
-	public void total(){
-		System.out.println();
+		inboxstep.select_the_value_from_inbox(filter);
+		inboxstep.select_total_value();
+		Assert.assertEquals(inboxstep.select_the_value_from_inbox(filter), inboxstep.select_total_value());
+		
 	}
 
 }

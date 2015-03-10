@@ -1,5 +1,6 @@
 package com;
 
+import junit.framework.Assert;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Pending;
@@ -45,7 +46,8 @@ public class InboxTest {
 		endUser.login_click();
 		endUser.vacation_button_pressed();
 		inSteps.press_inbox_button();
-		inSteps.selectLinkFromRibbon("b");
+		inSteps.select_the_value_from_inbox("b");
+		
 		
 	}
 	
