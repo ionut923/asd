@@ -19,6 +19,15 @@ public class MyRequestSteps extends ScenarioSteps{
 		  myRequestPage.selectFilterItem(filter);
 	  }
 	  
+//	  @Step
+//	  public void checkFilterItem(String filteritem1, String filteritem2, String filteritem3 ){
+//		  myRequestPage.checkFilters(filteritem1, filteritem2, filteritem3);
+//	  }
+	  @Step
+	  public void checkFilters(String filteritem, String filter){
+		  myRequestPage.checkFilters(filteritem, filter);
+	  }
+	  
 	  /*@Step
 	  public void selectVacationTypeList(String filter){
 		  myRequestPage.selectVacationTypeList(filter);
@@ -36,7 +45,11 @@ public class MyRequestSteps extends ScenarioSteps{
 		  
 		  
 	  }*/
-	  
+	
+	  @Step
+	  public void nextPageClick(){
+		  myRequestPage.applyButtonClick();
+	  }
 	  
 	  @Step
 	  public void checkboxFutureVacations(){

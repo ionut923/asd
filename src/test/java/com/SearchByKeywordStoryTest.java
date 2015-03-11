@@ -49,8 +49,8 @@ public class SearchByKeywordStoryTest {
     	
     	endUser.is_the_home_page();
     	endUser.sign_in();
-    	endUser.enter_username("malu.ioan1");
-    	endUser.enter_password("evoportal");
+    	endUser.enter_username("maria.popescu");
+    	endUser.enter_password("mariapopescu");
     	endUser.login_click();
     	endUser.vacation_button_pressed();
     	

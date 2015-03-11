@@ -25,8 +25,9 @@ import com.steps.MyRequestSteps;
 public class Filter_Request_Test {
 
 	
-	
-String Vacation_Type, Days_Number, Vacation_Status ;
+	// filter: Vacation_Type, Days_Number, Vacation_Status
+	// filterName: options
+String /*Vacation_Type, Days_Number, Vacation_Status, */ filter,filterName,filterName1,filterName2,filterName3 ;
 	
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -44,19 +45,23 @@ String Vacation_Type, Days_Number, Vacation_Status ;
 	public void requestsFilterTest() {
 		endUser.is_the_home_page();
 		endUser.sign_in();
-		endUser.enter_username("malu.ioan1");
-		endUser.enter_password("evoportal");
+		endUser.enter_username("maria.popescu");
+		endUser.enter_password("mariapopescu");
 		endUser.login_click();
 		endUser.vacation_button_pressed();
 		myRequest.myRequestPageClick();
 		myRequest.checkboxFutureVacations();
-		myRequest.selectFilterItem(Vacation_Type);
-		myRequest.selectFilterItem(Days_Number);
-		myRequest.selectFilterItem(Vacation_Status);
-		/*myRequest.selectVacationTypeList(Vacation_Type);
-		myRequest.selectVacationsDaysNumber(Days_Number);
-		myRequest.selectVacationStatus(Vacation_Status);*/
+		myRequest.selectFilterItem(filterName);
+		myRequest.selectFilterItem(filterName1);
+		myRequest.selectFilterItem(filterName2);
+		myRequest.selectFilterItem(filterName3);
+		myRequest.checkFilters(filter, filterName);
+		myRequest.checkFilters(filter, filterName1);
+		myRequest.checkFilters(filter, filterName2);
+		myRequest.checkFilters(filter, filterName3);
+
 		myRequest.applyButtonClick();
+		myRequest.nextPageClick();
 
 	}
 
