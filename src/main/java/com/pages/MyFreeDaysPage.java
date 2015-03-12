@@ -95,28 +95,28 @@ public class MyFreeDaysPage extends PageObject {
 		loginButton.click();
 		System.out.println("poi");
 	}
-	/*
-	 * public void getPageRibbon(String param) { //WebElementFacade list =
-	 * find(By.cssSelector(".lfr-nav-deletable.lfr-nav-updateable"));
-	 * List<WebElement> results = (List<WebElement>)
-	 * find(By.cssSelector(".lfr-nav-deletable.lfr-nav-updateable a span"));
-	 * for(WebElement l:results){
-	 * if(l.getText().toLowerCase().toString().equals(param)) {
-	 * System.out.print(l.getText().toString()); l.click(); } } }
-	 */
+	
+	public void getPageRibbon(String param) { //WebElementFacade list =
+		find(By.cssSelector(".lfr-nav-deletable.lfr-nav-updateable"));
+		List<WebElement> results = (List<WebElement>)
+				find(By.cssSelector(".lfr-nav-deletable.lfr-nav-updateable a span"));
+		for(WebElement l:results){
+			if(l.getText().toLowerCase().toString().equals(param)) {
+				System.out.print(l.getText().toString()); l.click(); } } }
 
-	/*
-	 * public List<String> getDefinitions() { WebElementFacade definitionList =
-	 * find(By.css("ol")); List<WebElement> results =
-	 * definitionList.findElements(By.tagName("li")); return convert(results,
-	 * toStrings()); }
-	 * 
-	 * private Converter<WebElement, String> toStrings() { return new
-	 * Converter<WebElement, String>() { public String convert(WebElement from)
-	 * { return from.getText(); }
-	 * 
-	 * };
-	 * 
-	 * }
-	 */
+
+	
+//	public List<String> getDefinitions() { 
+//		WebElementFacade definitionList = find(By.cssSelector("ol")); 
+//		List<WebElement> results = definitionList.findElements(By.tagName("li")); 
+//		return convert(results, toStrings()); 
+//	}
+	  
+//	private Converter<WebElement, String> toStrings() { return new
+//			Converter<WebElement, String>() { public String convert(WebElement from)
+//			{ return from.getText(); }
+//
+//	};
+	  
+	 
 }

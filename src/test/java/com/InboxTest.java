@@ -1,5 +1,6 @@
 package com;
 
+import junit.framework.Assert;
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Pending;
@@ -15,10 +16,12 @@ import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
 import com.steps.EndUserSteps;
+import com.steps.InboxSteps;
+import com.steps.MyRequestSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-public class SearchByKeywordStoryTest {
+public class InboxTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -28,45 +31,25 @@ public class SearchByKeywordStoryTest {
 
 	@Steps
 	public EndUserSteps endUser;
+	
+	@Steps
+	public InboxSteps inSteps;
 
 	
-	@Test
-	public void gotovacationpage() {
 
+	@Test
+	public void inbox_request_numbers() {
 		endUser.is_the_home_page();
 		endUser.sign_in();
-		endUser.enter_username("malu.ioan1");
-		endUser.enter_password("evoportal");
+		endUser.enter_username("bojte.tamas");
+		endUser.enter_password("shadowtomi");
 		endUser.login_click();
 		endUser.vacation_button_pressed();
+		inSteps.press_inbox_button();
+		inSteps.select_the_value_from_inbox("b");
+		
+		
 	}
 	
-    @Test 
-    public void login_action(){
-    	
-    	endUser.is_the_home_page();
-    	endUser.sign_in();
-    	endUser.enter_username("maria.popescu");
-    	endUser.enter_password("mariapopescu");
-    	endUser.login_click();
-    	endUser.vacation_button_pressed();
-    	
-    	
-    	
-    }
-    
-
-
-	/*
-	 * @Test public void
-	 * searching_by_keyword_banana_should_display_the_corresponding_article() {
-	 * endUser.is_the_home_page(); endUser.looks_for("pear");
-	 * endUser.should_see_definition(
-	 * "An edible fruit produced by the pear tree, similar to an apple but elongated towards the stem."
-	 * ); }
-	 * 
-	 * @Pending @Test public void
-	 * searching_by_ambiguious_keyword_should_display_the_disambiguation_page()
-	 * { }
-	 */
+	
 }

@@ -1,6 +1,6 @@
 package com.steps;
 
-import com.pages.DictionaryPage;
+//import com.pages.DictionaryPage;
 import com.pages.MyFreeDaysPage;
 
 import net.thucydides.core.annotations.Step;

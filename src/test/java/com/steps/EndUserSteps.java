@@ -28,9 +28,8 @@ public class EndUserSteps extends ScenarioSteps {
 	@Step
 	public void sign_in() {
 		dictionaryPage.press_sign_in();
-
 	}
-
+	
 	@Step
 	public void vacation_button_pressed() {
 		dictionaryPage.vacation_press();
@@ -42,19 +41,19 @@ public class EndUserSteps extends ScenarioSteps {
 
 	}
 	
-	/*@Step
+	@Step
 	public void getPageRibbon(String param){
 		dictionaryPage.getPageRibbon(param);
-	}*/
+	}
 
-	/*
-	 * @Step public void starts_search() { dictionaryPage.lookup_terms(); }
-	 */
-	/*
-	 * @Step public void should_see_definition(String definition) {
-	 * assertThat(dictionaryPage.getDefinitions(),
-	 * hasItem(containsString(definition))); }
-	 */
+	
+//	@Step public void starts_search() { dictionaryPage.lookup_terms(); }
+//	 
+//	
+//	@Step public void should_see_definition(String definition) {
+//	assertThat(dictionaryPage.getDefinitions(),
+//	hasItem(containsString(definition))); }
+	 
 
 	@Step
 	public void is_the_home_page() {
@@ -62,8 +61,9 @@ public class EndUserSteps extends ScenarioSteps {
 		getDriver().manage().window().maximize();
 	}
 
-	/*
-	 * @Step public void looks_for(String term) { enters(term); starts_search();
-	 * }
-	 */
+//    @Step
+//    public void looks_for(String term) {
+//        enters(term);
+//        starts_search();
+//    }
 }
