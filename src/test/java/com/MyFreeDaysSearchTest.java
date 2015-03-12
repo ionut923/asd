@@ -15,10 +15,11 @@ import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
 import com.steps.EndUserSteps;
+import com.steps.MyFreeDaysSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-public class SearchByKeywordStoryTest {
+public class MyFreeDaysSearchTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -27,9 +28,8 @@ public class SearchByKeywordStoryTest {
 	public Pages pages;
 
 	@Steps
-	public EndUserSteps endUser;
+	public MyFreeDaysSteps endUser;
 
-	@Issue("#WIKI-1")
 	/*
 	 * @Test public void
 	 * searching_by_keyword_apple_should_display_the_corresponding_article() {
@@ -42,15 +42,16 @@ public class SearchByKeywordStoryTest {
 	 */
 	
 	@Test
-	public void gotovacationpage() {
-
+	public void myfreedayspage() {
 		endUser.is_the_home_page();
 		endUser.sign_in();
 		endUser.enter_username("malu.ioan1");
 		endUser.enter_password("evoportal");
 		endUser.login_click();
 		endUser.vacation_button_pressed();
-	
+		endUser.click_myfreedays();
+		endUser.verify_free_days_number();
+		
 	//	endUser.getPageRibbon("vacation");
 
 	}

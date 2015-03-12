@@ -7,19 +7,28 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.annotations.Story;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.core.annotations.Managed;
+import net.thucydides.junit.annotations.UseTestDataFrom;
+import net.thucydides.junit.runners.ThucydidesParameterizedRunner;
 import net.thucydides.junit.runners.ThucydidesRunner;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
+import com.google.protobuf.TextFormat.ParseException;
 import com.requirements.Application;
 import com.steps.EndUserSteps;
+import com.steps.MyFreeDaysSteps;
+import com.steps.Newrequest_Steps;
 
 @Story(Application.Search.SearchByKeyword.class)
-@RunWith(ThucydidesRunner.class)
-public class SearchByKeywordStoryTest {
+@RunWith(ThucydidesParameterizedRunner.class)
+//@UseTestDataFrom("resources/dataTest.csv")
+@UseTestDataFrom("resources/Data_startdate.csv")
+public class Newrequest_Test {
 
+	Integer start_month,end_day,start_year,end_month,end_dayx,end_year;
+	//int startdate=Integer.
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
@@ -27,9 +36,8 @@ public class SearchByKeywordStoryTest {
 	public Pages pages;
 
 	@Steps
-	public EndUserSteps endUser;
+	public Newrequest_Steps endUser;
 
-	@Issue("#WIKI-1")
 	/*
 	 * @Test public void
 	 * searching_by_keyword_apple_should_display_the_corresponding_article() {
@@ -42,15 +50,20 @@ public class SearchByKeywordStoryTest {
 	 */
 	
 	@Test
-	public void gotovacationpage() {
-
+	public void myfreedayspage() throws ParseException, java.text.ParseException {
 		endUser.is_the_home_page();
 		endUser.sign_in();
-		endUser.enter_username("malu.ioan1");
-		endUser.enter_password("evoportal");
+		endUser.enter_username("ionutciorba");
+		endUser.enter_password("Solomon.923");
 		endUser.login_click();
 		endUser.vacation_button_pressed();
-	
+		endUser.click_Newrequest_button();
+		endUser.setStartDate(start_month,end_day,start_year);
+		endUser.setEndDate(end_month,end_day,end_year);
+		endUser.click_submit_button();
+		//endUser.click_myfreedays();
+		//endUser.verify_free_days_number();
+		
 	//	endUser.getPageRibbon("vacation");
 
 	}

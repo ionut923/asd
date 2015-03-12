@@ -1,15 +1,15 @@
 package com.pages;
 
-import ch.lambdaj.function.convert.Converter;
 import net.thucydides.core.annotations.DefaultUrl;
+
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import net.thucydides.core.pages.WebElementFacade;
-
 import net.thucydides.core.annotations.findby.FindBy;
-
 import net.thucydides.core.pages.PageObject;
 
 import java.util.List;
@@ -18,7 +18,7 @@ import static ch.lambdaj.Lambda.convert;
 
 //@DefaultUrl("http://en.wiktionary.org/wiki/Wiktionary:Main_Page")
 //@DefaultUrl("http://192.168.1.68:9090/login")
-public class DictionaryPage extends PageObject {
+public class MyFreeDaysPage extends PageObject {
 
 	@FindBy(id = "sign-in")
 	private WebElementFacade Sign_in_button;
@@ -35,12 +35,51 @@ public class DictionaryPage extends PageObject {
 	@FindBy(css = "a[href*='vacation']")
 	private WebElementFacade vacation_button;
 
+	@FindBy(css = "a[href*='http://192.168.1.68:9090/vacation?p_p_id=evovacation_WAR_EvoVacationportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_evovacation_WAR_EvoVacationportlet_backURL=%2Fvacation&_evovacation_WAR_EvoVacationportlet_menuItem=my-free-days']")
+	private WebElementFacade Myfreedays_button;
+
+	@FindBy(xpath = "//td[text()='Free days given this year']/following-sibling::td")
+	private WebElementFacade FreeDaysGivenThisYear;
+
+	@FindBy(xpath = "//td[text()='Free days left from last year']/following-sibling::td")
+	private WebElementFacade FreeDaysLeftFromLastYear;
+
+	@FindBy(xpath = "//td[text()='Vacation days taken this year']/following-sibling::td")
+	private WebElementFacade VacationDaysTakenThisYear;
+
+	@FindBy(xpath = "//td[text()='Total available free days']/following-sibling::td")
+	private WebElementFacade TotalAvailablefreedays;
+
 	public void enter_username(String username) {
 		userInput.sendKeys(username);
+
+	}
+
+	public void verifyTheTotalnumberdays() {
+		int freedaysgivennr = Integer
+				.parseInt(FreeDaysGivenThisYear.getText().toString());
+		int freedaysleftnr = Integer.parseInt(FreeDaysLeftFromLastYear.getText()
+				.toString());
+		int vacationdaysnr = Integer.parseInt(VacationDaysTakenThisYear.getText()
+				.toString());
+		int totaldaysnrshown = Integer.parseInt(TotalAvailablefreedays.getText()
+				.toString());
+		System.out.print(freedaysgivennr);
+		// int
+		// totalfreedays=(FreeDaysGivenThisYear+FreeDaysLeftFromLastYear)-VacationDaysTakenThisYear;
+		int totaldaysnr = (freedaysgivennr + freedaysleftnr) - vacationdaysnr;
+
+		Assert.assertEquals(totaldaysnr, totaldaysnrshown);
+
 	}
 
 	public void vacation_press() {
 		vacation_button.click();
+	}
+
+	public void myfreedays_press() {
+		Myfreedays_button.click();
+
 	}
 
 	public void press_sign_in() {
