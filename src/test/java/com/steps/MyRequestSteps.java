@@ -63,4 +63,12 @@ public class MyRequestSteps extends ScenarioSteps{
 	  }
 	
 	
+	  @Step
+	  public void NextPageClick(String filter, String filterName){
+		  myRequestPage.nextPage(filter, filterName);
+	  }
+	  
+	  
+	  
+	  
 }

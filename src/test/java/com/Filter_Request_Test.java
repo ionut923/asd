@@ -55,13 +55,13 @@ String /*Vacation_Type, Days_Number, Vacation_Status, */ filter,filterName,filte
 		myRequest.selectFilterItem(filterName1);
 		myRequest.selectFilterItem(filterName2);
 		myRequest.selectFilterItem(filterName3);
-		myRequest.checkFilters(filter, filterName);
+		/*myRequest.checkFilters(filter, filterName);
 		myRequest.checkFilters(filter, filterName1);
 		myRequest.checkFilters(filter, filterName2);
-		myRequest.checkFilters(filter, filterName3);
-
+		myRequest.checkFilters(filter, filterName3);*/
 		myRequest.applyButtonClick();
-		myRequest.nextPageClick();
+		myRequest.NextPageClick(filter, filterName);
+	
 
 	}
 

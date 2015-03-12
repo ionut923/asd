@@ -20,6 +20,10 @@ import net.thucydides.core.pages.PageObject;
 import java.util.List;
 
 public class MyRequestPage extends PageObject {
+	
+	
+	
+	
 
 	@FindBy(css = "[href*='menuItem=my-requests']")
 	private WebElementFacade myRequest_Button;
@@ -30,8 +34,11 @@ public class MyRequestPage extends PageObject {
 	@FindBy(css = "input[id $='applyButton']")
 	private WebElementFacade apply;
 
-	@FindBy(css = "a[href*='EvoVacationportlet_resetCur=false&cur=']")
-	private WebElementFacade applyButton;
+	@FindBy(css = "a[class*='aui-paginator-link aui-paginator-next-link']")
+	private WebElementFacade nextButton;
+
+	@FindBy(css = "span[class*='aui-paginator-current-page-report aui-paginator-total']")
+	private WebElementFacade totalPages;
 
 	public void applyClick() {
 		apply.click();
@@ -39,7 +46,7 @@ public class MyRequestPage extends PageObject {
 	}
 
 	public void applyButtonClick() {
-		applyButton.click();
+		nextButton.click();
 	}
 
 	public void myRequestPageClick() {
@@ -51,21 +58,39 @@ public class MyRequestPage extends PageObject {
 		futureVacationCheckbox.click();
 	}
 
-	public void selectFilterItem(String filterName) {
-		List<WebElement> filtersList = getDriver().findElements(
-				By.cssSelector((".aui-choice-label")));
-		if (!filterName.trim().contentEquals("")) {
-			boolean foundOption = false;
-			for (WebElement vacatioType : filtersList) {
-				if (vacatioType.getText().equals(filterName)) {
-					System.out.print(vacatioType.getText());
-					foundOption = true;
-					vacatioType.click();
-					break;
-				}
-			}
-			Assert.assertTrue("The option was not found!", foundOption);
+	public void nextPage(String filter, String filterName) {
+
+		String textfild = totalPages.getText().toString();
+		String[] newstring = textfild.split(" ");
+		String newnewstring = newstring[0];
+
+		System.out.println(newnewstring);
+
+		String last, last1 = "";
+		last = newnewstring.substring(1, newnewstring.length());
+
+		String newnewstring1 = newstring[2];
+		last1 = newnewstring1.substring(0, newnewstring1.length() - 1);
+
+		System.out.println(last1);
+		System.out.println(last);
+
+		int lastt1 = Integer.parseInt(last1);
+		int lastt = Integer.parseInt(last);
+		
+		
+		checkFilters(filter, filterName);
+		while (lastt1 > lastt) {
+
+			System.out.println("iN WHILE " + last1);
+			System.out.println("iN WHILE " + last);
+
+			lastt++;
+			
+			nextButton.click();
+			checkFilters(filter, filterName);
 		}
+		
 
 	}
 
@@ -95,9 +120,27 @@ public class MyRequestPage extends PageObject {
 
 				Assert.assertTrue("The option " + filterName
 						+ " was not found!", option);
-				
+
 			}
 		}
+	}
+
+	public void selectFilterItem(String filterName) {
+		List<WebElement> filtersList = getDriver().findElements(
+				By.cssSelector((".aui-choice-label")));
+		if (!filterName.trim().contentEquals("")) {
+			boolean foundOption = false;
+			for (WebElement vacatioType : filtersList) {
+				if (vacatioType.getText().equals(filterName)) {
+					System.out.print(vacatioType.getText());
+					foundOption = true;
+					vacatioType.click();
+					break;
+				}
+			}
+			Assert.assertTrue("The option was not found!", foundOption);
+		}
+
 	}
 
 }
