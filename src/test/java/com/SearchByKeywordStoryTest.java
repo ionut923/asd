@@ -20,30 +20,27 @@ import com.steps.EndUserSteps;
 @RunWith(ThucydidesRunner.class)
 public class SearchByKeywordStoryTest {
 
-    @Managed(uniqueSession = true)
-    public WebDriver webdriver;
+	@Managed(uniqueSession = true)
+	public WebDriver webdriver;
 
-    @ManagedPages(defaultUrl = "http://192.168.1.68:9090")
-    public Pages pages;
-    
-  
-    
-    @Steps
-    public EndUserSteps endUser;
+	@ManagedPages(defaultUrl = "http://192.168.1.68:9090")
+	public Pages pages;
 
-    @Issue("#WIKI-1")
-   /* @Test
-    public void searching_by_keyword_apple_should_display_the_corresponding_article() {
-        endUser.is_the_home_page();
-		endUser.looks_for("apple");
-        endUser.should_see_definition("A common, round fruit produced by the tree Malus domestica, cultivated in temperate climates.");
+	@Steps
+	public EndUserSteps endUser;
 
-    }*/
+	
+	@Test
+	public void gotovacationpage() {
 
-    
-    
-    
-    
+		endUser.is_the_home_page();
+		endUser.sign_in();
+		endUser.enter_username("malu.ioan1");
+		endUser.enter_password("evoportal");
+		endUser.login_click();
+		endUser.vacation_button_pressed();
+	}
+	
     @Test 
     public void login_action(){
     	
@@ -58,16 +55,18 @@ public class SearchByKeywordStoryTest {
     	
     }
     
-    
-   /* @Test
-    public void searching_by_keyword_banana_should_display_the_corresponding_article() {
-        endUser.is_the_home_page();
-		endUser.looks_for("pear");
-		endUser.should_see_definition("An edible fruit produced by the pear tree, similar to an apple but elongated towards the stem.");
-    }
 
-    @Pending @Test
-    public void searching_by_ambiguious_keyword_should_display_the_disambiguation_page() {
-    }
-    */
-} 
+
+	/*
+	 * @Test public void
+	 * searching_by_keyword_banana_should_display_the_corresponding_article() {
+	 * endUser.is_the_home_page(); endUser.looks_for("pear");
+	 * endUser.should_see_definition(
+	 * "An edible fruit produced by the pear tree, similar to an apple but elongated towards the stem."
+	 * ); }
+	 * 
+	 * @Pending @Test public void
+	 * searching_by_ambiguious_keyword_should_display_the_disambiguation_page()
+	 * { }
+	 */
+}

@@ -1,4 +1,5 @@
 package com;
+
 import java.io.IOException;
 import java.text.ParseException;
 
@@ -10,27 +11,20 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.junit.runners.ThucydidesRunner;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-import com.pages.MailPage;
-import com.SearchByKeywordStoryTest;
-import com.steps.EndUserSteps;
-import com.steps.Newrequest_Steps;
+//import com.LoginTest;
+import com.steps.LoginSteps;
 //import com.steps.NewVacationTestSteps;
+import com.steps.Newrequest_Steps;
+//import Utile.EmailPage;
+import com.pages.EmailPage;
 
 
 @RunWith(ThucydidesRunner.class)
-
-
-
-
-
-
 public class MailTest {
-
 	
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -39,35 +33,38 @@ public class MailTest {
 	public Pages pages;
 	
 	@Steps 
-	public Newrequest_Steps newVacationTestSteps;
+	public Newrequest_Steps newrequestTestSteps;
+	
 	
 	@Steps
-	public EndUserSteps loginSteps;
+	public LoginSteps loginSteps;
 	
+	//@Steps
+	//public LoginTest loginTest;
+	 
 	@Steps
-	public SearchByKeywordStoryTest loginTest;
-	
-	@Steps
-	public MailPage emailPageSteps;
+	public EmailPage emailPageSteps;
 	
 	@Test
 	public void checkingIfMailWasReceived() throws ParseException, MessagingException, IOException{
-		//loginTest.login_action();
-		newVacationTestSteps.is_the_home_page();
-		 newVacationTestSteps.sign_in();
-		  newVacationTestSteps.enter_username("maria.popescu");
-		  newVacationTestSteps.enter_password("mariapopescu");
-		  newVacationTestSteps.login_click();
-		  newVacationTestSteps.vacation_button_pressed();
-		  newVacationTestSteps.click_Newrequest_button();
-		//newVacationTestSteps.new_vacation_open();
-		newVacationTestSteps.setStartDate(2, 3, 2016);
-		newVacationTestSteps.setEndDate(2, 4, 2016);
-		newVacationTestSteps.click_submit_button();
-		//newVacationTestSteps.createANewVacation();
+		newrequestTestSteps.is_the_home_page();
+		newrequestTestSteps.sign_in();
+		newrequestTestSteps.enter_username("ionutciorba");
+		newrequestTestSteps.enter_password("Solomon.923");
+		newrequestTestSteps.login_click();
+		newrequestTestSteps.vacation_button_pressed();
+		newrequestTestSteps.click_Newrequest_button();
+		//newrequestTestSteps.click_submit_button();
 		
-		String startDate="03/02/2016";
-		String endDate="04/02/2016";
+		//loginTest.login_action();
+		//newrequestTestSteps.new_vacation_open();
+		newrequestTestSteps.setStartDate(10, 6, 2015);
+		newrequestTestSteps.setEndDate(10, 7, 2015);
+		newrequestTestSteps.click_submit_button();
+		//newrequestTestSteps.createANewVacation();
+		
+		String startDate="06/10/2015";
+		String endDate="07/10/2015";
 		
 		
 		String body ="Your holiday interval is: <strong>" + startDate + " - " + endDate + "</strong>.";
@@ -80,7 +77,4 @@ public class MailTest {
 		
 		}
 
-	
-	
-	
 }
