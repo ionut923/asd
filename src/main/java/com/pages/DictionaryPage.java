@@ -2,6 +2,7 @@ package com.pages;
 
 import static ch.lambdaj.Lambda.convert;
 
+
 import java.util.List;
 
 import net.thucydides.core.annotations.findby.FindBy;
@@ -80,7 +81,6 @@ public class DictionaryPage extends PageObject {
     	}
 	 
 
-	
 	 public List<String> getDefinitions() { 
 		 WebElementFacade definitionList = find(By.cssSelector("ol")); 
 		 List<WebElement> results = definitionList.findElements(By.tagName("li")); 

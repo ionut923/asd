@@ -1,20 +1,17 @@
 package com.steps;
 
-import com.google.protobuf.TextFormat.ParseException;
-import com.pages.DictionaryPage;
-import com.pages.MyFreeDaysPage;
-import com.pages.Newrequest_Page;
-
 import net.thucydides.core.annotations.Step;
-import net.thucydides.core.pages.Pages;
 import net.thucydides.core.steps.ScenarioSteps;
-import static ch.lambdaj.Lambda.join;
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.hasItem;
+
+import com.google.protobuf.TextFormat.ParseException;
+import com.pages.Newrequest_Page;
 
 public class Newrequest_Steps extends ScenarioSteps {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	//DictionaryPage myfreedayspage;
 	Newrequest_Page newrequestpage;
 	@Step
@@ -48,6 +45,21 @@ public class Newrequest_Steps extends ScenarioSteps {
 	public void click_submit_button(){
 		newrequestpage.click_submit_button();
 	}
+	
+	
+	
+	@Step
+	public void click_request_button(){
+	newrequestpage.clickSubmitString();
+	}
+	
+	@Step
+	public void click_withdraw_button(){
+	newrequestpage.clickWithdrawButton();
+	}
+	
+	
+	
 	
 	
 	@Step

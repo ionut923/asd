@@ -1,7 +1,5 @@
 package com;
 
-
-
 import java.io.IOException;
 import java.text.ParseException;
 
@@ -13,7 +11,6 @@ import net.thucydides.core.annotations.Steps;
 import net.thucydides.core.pages.Pages;
 import net.thucydides.junit.runners.ThucydidesRunner;
 
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
@@ -28,6 +25,8 @@ import com.steps.Email_Steps;
 import com.steps.LoginSteps;
 //import com.steps.NewVacationTestSteps;
 import com.steps.Newrequest_Steps;
+//import Utile.EmailPage;
+import com.pages.EmailPage;
 
 
 @RunWith(ThucydidesRunner.class)

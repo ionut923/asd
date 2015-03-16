@@ -13,11 +13,12 @@ import org.openqa.selenium.WebDriver;
 
 import com.requirements.Application;
 import com.steps.EndUserSteps;
-import com.steps.InboxSteps;
+import com.steps.FreeDaysCheckSteps;
+import com.steps.MyRequestSteps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesRunner.class)
-public class InboxTest {
+public class FreeDaysCheckTest {
 
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
@@ -27,25 +28,25 @@ public class InboxTest {
 
 	@Steps
 	public EndUserSteps endUser;
+
+	@Steps
+	public MyRequestSteps myRequest;
 	
 	@Steps
-	public InboxSteps inSteps;
-
-	
+	public FreeDaysCheckSteps freeDaysCheckPage;
 
 	@Test
-	public void inbox_request_numbers() {
+	public void requestsFilterTest() {
 		endUser.is_the_home_page();
 		endUser.sign_in();
 		endUser.enter_username("bojte.tamas");
 		endUser.enter_password("shadowtomi");
 		endUser.login_click();
 		endUser.vacation_button_pressed();
-		inSteps.press_inbox_button();
-		inSteps.select_the_value_from_inbox("b");
-		
-		
+		freeDaysCheckPage.myRequest_Button_click();
+		freeDaysCheckPage.pending_button_checkbox_click();
+		freeDaysCheckPage.myrequest_apply_button_click();
+		freeDaysCheckPage.first_row_in_column1_click();
+		freeDaysCheckPage.press_withdrawn_button();
 	}
-	
-	
 }
