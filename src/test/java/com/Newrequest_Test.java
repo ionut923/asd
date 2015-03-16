@@ -33,16 +33,7 @@ public class Newrequest_Test {
 	@Steps
 	public Newrequest_Steps endUser;
 
-	/*
-	 * @Test public void
-	 * searching_by_keyword_apple_should_display_the_corresponding_article() {
-	 * endUser.is_the_home_page(); endUser.looks_for("apple");
-	 * endUser.should_see_definition(
-	 * "A common, round fruit produced by the tree Malus domestica, cultivated in temperate climates."
-	 * );
-	 * 
-	 * }
-	 */
+
 	
 	@Test
 	public void myfreedayspage() throws ParseException, java.text.ParseException {

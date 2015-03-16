@@ -58,6 +58,15 @@ public class MyRequestSteps extends ScenarioSteps{
 	  }
 	  
 	  @Step
+	  public void findRequest(String firstDate){
+		  myRequestPage.FindMyRequest(firstDate);
+		  
+		  
+	  }
+	  
+	  
+	  
+	  @Step
 	  public void applyButtonClick(){
 		  myRequestPage.applyClick();
 	  }

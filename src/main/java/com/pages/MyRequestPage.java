@@ -1,23 +1,16 @@
 package com.pages;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.List;
+
 import net.thucydides.core.annotations.findby.FindBy;
+import net.thucydides.core.pages.PageObject;
 import net.thucydides.core.pages.WebElementFacade;
-import ch.lambdaj.function.convert.Converter;
-import net.thucydides.core.annotations.DefaultUrl;
 
 import org.junit.Assert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import com.gargoylesoftware.htmlunit.javascript.host.Element;
-
-import net.thucydides.core.pages.WebElementFacade;
-import net.thucydides.core.annotations.findby.FindBy;
-import net.thucydides.core.pages.PageObject;
-
-import java.util.List;
 
 public class MyRequestPage extends PageObject {
 	
@@ -39,6 +32,8 @@ public class MyRequestPage extends PageObject {
 
 	@FindBy(css = "span[class*='aui-paginator-current-page-report aui-paginator-total']")
 	private WebElementFacade totalPages;
+
+	//private String ;
 
 	public void applyClick() {
 		apply.click();
@@ -143,7 +138,114 @@ public class MyRequestPage extends PageObject {
 
 	}
 
+	public void FindMyRequest(String firstDate) {
+
+		
+		//transforma firstDate si endDate
+		
+		
+		String textfild = totalPages.getText().toString();
+		String[] newstring = textfild.split(" ");
+		String newnewstring = newstring[0];
+
+		System.out.println(newnewstring);
+
+		String last, last1 = "";
+		last = newnewstring.substring(1, newnewstring.length());
+
+		String newnewstring1 = newstring[2];
+		last1 = newnewstring1.substring(0, newnewstring1.length() - 1);
+
+		System.out.println(last1);
+		System.out.println(last);
+
+		int lastt1 = Integer.parseInt(last1);
+		int lastt = Integer.parseInt(last);
+		
+		
+		checkMyRequest(firstDate);
+		
+		
+		
+		while (lastt1 > lastt) {
+
+			System.out.println("iN WHILE " + last1);
+			System.out.println("iN WHILE " + last);
+
+			lastt++;
+			
+			nextButton.click();
+			
+			
+			
+			checkMyRequest(firstDate);
+		}
+		
+
+	}
+
+	
+	
+	public void checkMyRequest(String firstDate){//, String verifyFirstDate) {
+		// List<WebElement> daysList = getDriver().findElements(
+		// By.cssSelector(("tr td[class*='col-3 col-my.request.column.header.day.number']")));
+
+//		transforma startDate si endDate din formatul 1/1/2015 in formatul 01/01/2015
+		
+	//	SimpleDateFormat f = new SimpleDateFormat("dd/MM/yyyy");
+	//	@SuppressWarnings("deprecation")
+	//	String fDate = f.format(new Date(firstDate));
+		
+		
+	//	SimpleDateFormat e = new SimpleDateFormat("dd/MM/yyyy");
+		//String eDate = e.format(new Date(endDate));
+		
+		
+		
+		List<WebElement> verifyingFirstDate = getDriver().findElements(
+				By.cssSelector("tr td[id*='evovacation'][class*='col-1']"));
+
+	//	if (!verifyFirstDate.trim().contentEquals("")) {
+		//	if (firstDate.contentEquals(verifyingFirstDate)) {
+				boolean option = false;
+				
+				System.out.println("Looking for: " + firstDate);
+
+				for (WebElement vacationTypeListOption : verifyingFirstDate) {
+					System.out.println("Date found: " + vacationTypeListOption.getText());
+					if ((vacationTypeListOption.getText()
+							.contentEquals(firstDate))) {
+						System.out
+								.print("!!!!!!!!!!!!!!!!!  I found my request  !!! "
+										+ vacationTypeListOption.getText());
+						//System.out.print("Selected option :" + verifyFirstDate);
+						option = true;
+						break;
+					}
+
+				}
+
+				Assert.assertTrue("The option " + firstDate
+						+ " was not found!", option);
+
+		//	}
+	//	}
+	}
+	
+	
+
+
+
+	
+	
 }
+
+
+
+
+
+
+
 
 /*
  * public void checkFilters(String daysFilter, String typeFilter,String
