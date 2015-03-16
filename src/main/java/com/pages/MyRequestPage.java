@@ -234,6 +234,82 @@ public class MyRequestPage extends PageObject {
 	
 	
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	public void nextPagee(String filter, String filterName) {
+
+		String textfild = totalPages.getText().toString();
+		String[] newstring = textfild.split(" ");
+		String newnewstring = newstring[0];
+
+		System.out.println(newnewstring);
+
+		String last, last1 = "";
+		last = newnewstring.substring(1, newnewstring.length());
+
+		String newnewstring1 = newstring[2];
+		last1 = newnewstring1.substring(0, newnewstring1.length() - 1);
+
+		System.out.println(last1);
+		System.out.println(last);
+
+		int lastt1 = Integer.parseInt(last1);
+		int lastt = Integer.parseInt(last);
+		
+		
+		checkFilter(filter, filterName);
+		while (lastt1 > lastt) {
+
+			System.out.println("iN WHILE " + last1);
+			System.out.println("iN WHILE " + last);
+
+			lastt++;
+			
+			nextButton.click();
+			checkFilter(filter, filterName);
+		}
+		
+
+	}
+
+	public void checkFilter(String filter, String filterName) {
+	
+
+		List<WebElement> vacationTypeList = getDriver().findElements(
+				By.cssSelector("tr td[id*='evovacation'][class*='col-6']"));
+
+		if (!filterName.trim().contentEquals("")) {
+			if (filter.contentEquals("Vacation Status")) {
+				boolean option = false;
+
+				for (WebElement vacationTypeListOption : vacationTypeList) {
+
+					if ((vacationTypeListOption.getText()
+							.contentEquals(filterName))) {
+						System.out
+								.print("!!!!!!!!!!!!!!!!! Vacation type displayed in the table!!! "
+										+ vacationTypeListOption.getText());
+						System.out.print("Selected option :" + filterName);
+						option = true;
+					}
+
+				}
+
+				Assert.assertTrue("The option " + filterName
+						+ " was not found!", option);
+
+			}
+		}
+	}
+	
+	
 
 
 	

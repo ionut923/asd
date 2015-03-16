@@ -22,14 +22,14 @@ import org.apache.http.message.BasicNameValuePair;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 	 
-	public class HTTP_Request {
+	public class HttpRequest {
 	 
 	 //private final String USER_AGENT = "Mozilla/5.0";//
 	 private final String USER_AGENT = "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/534.20 (KHTML, like Gecko) Chrome/11.0.672.2 Safari/534.20";
 	 
 	 public static void main(String[] args) throws Exception {
 	 
-	  HTTP_Request http = new HTTP_Request();
+	  HttpRequest http = new HttpRequest();
 	 
 	  System.out.println("Testing 1 - Send Http GET request");
 	  http.sendGet();
