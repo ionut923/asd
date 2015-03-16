@@ -2,6 +2,7 @@ package com.steps;
 
 import net.thucydides.core.annotations.Step;
 import net.thucydides.core.steps.ScenarioSteps;
+import net.thucydides.junit.annotations.UseTestDataFrom;
 
 import com.pages.MyRequestPage;
 
@@ -64,6 +65,12 @@ public class MyRequestSteps extends ScenarioSteps{
 		  
 	  }
 	  
+	  @Step
+	  public void checkRequest(String firstDate){
+		  myRequestPage.checkMyRequest(firstDate);
+		  
+		  
+	  }
 	  
 	  
 	  @Step
@@ -73,11 +80,14 @@ public class MyRequestSteps extends ScenarioSteps{
 	
 	
 	  @Step
-	  public void NextPageClick(String filter, String filterName){
-		  myRequestPage.nextPage(filter, filterName);
+	  public void NextPageClick(String filter2, String filterNameII){
+		  myRequestPage.nextPage(filter2, filterNameII);
 	  }
 	  
-	  
-	  
+	  @Step
+	  public void NextPage(String filter, String filterName){
+		  myRequestPage.nextPagee(filter, filterName);
+	  }
+	
 	  
 }

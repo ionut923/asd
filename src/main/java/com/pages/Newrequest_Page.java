@@ -36,6 +36,11 @@ public class Newrequest_Page extends PageObject{
 		 @FindBy(css="a[href='http://192.168.1.68:9090/vacation?p_p_id=evovacation_WAR_EvoVacationportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_evovacation_WAR_EvoVacationportlet_backURL=%2Fvacation&_evovacation_WAR_EvoVacationportlet_menuItem=new-request']")
 		 private WebElementFacade Newrequest_button;
 		 
+		 
+		 @FindBy(css = "input[value='Withdraw']")
+		 private WebElementFacade withdrawButton;
+	
+		 
 		/* @FindBy(css="td[class='dp_previous']")
 		 private WebElementFacade previous_button;
 		 
@@ -61,6 +66,11 @@ public class Newrequest_Page extends PageObject{
 		  
 		  @FindBy(css="input[type='submit']")
 		  private WebElementFacade submit_button;
+		  
+		  
+		  @FindBy(css="a[href*='EvoVacationportlet_vacationId=16021']")
+		  private WebElementFacade accesRequestString;
+		  
 		 /*@FindBy(css = "a[href*='http://192.168.1.68:9090/vacation?p_p_id=evovacation_WAR_EvoVacationportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_evovacation_WAR_EvoVacationportlet_backURL=%2Fvacation&_evovacation_WAR_EvoVacationportlet_menuItem=my-free-days']")
 		 private WebElementFacade Myfreedays_button;*/
 
@@ -82,8 +92,12 @@ public class Newrequest_Page extends PageObject{
 		 }
 		 
 		 public void click_submit_button(){
-		  submit_button.click();
-		 }
+			  submit_button.click();
+			 }
+		 
+		 
+		
+		 
 
 		 /*public void verifyTheTotalnumberdays() {
 		  int freedaysgivennr = Integer
@@ -181,6 +195,18 @@ public class Newrequest_Page extends PageObject{
 		 public void click_StartDate() {
 		  startDate.click();
 		 }
+
+		public void clickSubmitString() {
+			accesRequestString.click();
+			 
+		}
+
+		public void clickWithdrawButton() {
+			
+				  withdrawButton.click();
+			
+			
+		}
 
 		 /*
 		  * public List<String> getDefinitions() { WebElementFacade definitionList =

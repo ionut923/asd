@@ -47,6 +47,21 @@ public class Newrequest_Steps extends ScenarioSteps {
 	}
 	
 	
+	
+	@Step
+	public void click_request_button(){
+	newrequestpage.clickSubmitString();
+	}
+	
+	@Step
+	public void click_withdraw_button(){
+	newrequestpage.clickWithdrawButton();
+	}
+	
+	
+	
+	
+	
 	@Step
 	public void click_Newrequest_button(){
 		

@@ -12,64 +12,53 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 
-import com.google.protobuf.TextFormat.ParseException;
 import com.requirements.Application;
+import com.steps.EndUserSteps;
 import com.steps.MyRequestSteps;
-import com.steps.Newrequest_Steps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesParameterizedRunner.class)
-// @UseTestDataFrom("resources/dataTest.csv")
-@UseTestDataFrom("Resources/FindMyRequest.csv")
-public class VerifyTheExistenceOfMyReguestTest {
+@UseTestDataFrom("Resources/filters.csv")
+public class FilterRequestTest {
 
-	// int startdate=Integer.
+	
+	// filter: Vacation_Type, Days_Number, Vacation_Status
+	// filterName: options
+String /*Vacation_Type, Days_Number, Vacation_Status, */ filter,filterName,filterName1,filterName2,filterName3 ;
+	
 	@Managed(uniqueSession = true)
 	public WebDriver webdriver;
 
 	@ManagedPages(defaultUrl = "http://192.168.1.68:9090")
 	public Pages pages;
-	
-	Integer start_month,start_day,start_year,end_month,end_day,end_year;
 
 	@Steps
-	public Newrequest_Steps endUser;
-	
+	public EndUserSteps endUser;
+
 	@Steps
 	public MyRequestSteps myRequest;
 
-	
-	
-	
-	
-	
 	@Test
-	public void myfreedayspage() throws ParseException,	java.text.ParseException {
-		
-		
-		//String verifyFirstDate, verifyEndDate;
-		String startDate = "0" +start_day + "/" + "0" + start_month + "/" + start_year; 
-		String endDate = end_day  + "/" + end_month + "/" + end_year; 
-		
+	public void requestsFilterTest() {
 		endUser.is_the_home_page();
 		endUser.sign_in();
 		endUser.enter_username("maria.popescu");
 		endUser.enter_password("mariapopescu");
 		endUser.login_click();
 		endUser.vacation_button_pressed();
-		System.out.println(start_day);
-		endUser.click_Newrequest_button();
-		endUser.setStartDate(start_month, start_day, start_year);
-		endUser.setEndDate(end_month, start_day, end_year);
-		endUser.click_submit_button();
-		
-
-		
-		
 		myRequest.myRequestPageClick();
-		//myRequest.checkboxFutureVacations();
-		myRequest.checkRequest(startDate);
+		myRequest.checkboxFutureVacations();
+		myRequest.selectFilterItem(filterName);
+		myRequest.selectFilterItem(filterName1);
+		myRequest.selectFilterItem(filterName2);
+		myRequest.selectFilterItem(filterName3);
+		/*myRequest.checkFilters(filter, filterName);
+		myRequest.checkFilters(filter, filterName1);
+		myRequest.checkFilters(filter, filterName2);
+		myRequest.checkFilters(filter, filterName3);*/
+		myRequest.applyButtonClick();
+		myRequest.NextPageClick(filter, filterName);
 	
-
 	}
+
 }
