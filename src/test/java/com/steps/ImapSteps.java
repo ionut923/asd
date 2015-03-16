@@ -14,37 +14,37 @@ import com.sun.mail.imap.IMAPMessage;
 public class ImapSteps {
 
 
-    public static void main(String[] args) throws MessagingException, IOException {
-        IMAPFolder folder = null;
-        Store store = null;
-        String subject = null;
-        Flag flag = null;
+   public static void main(String[] args) throws MessagingException, IOException {
+       IMAPFolder folder = null;
+       Store store = null;
+       String subject = null;
+       Flag flag = null;
         try 
         {
           Properties props = System.getProperties();
           props.setProperty("mail.store.protocol", "imaps");
 
-          Session session = Session.getDefaultInstance(props, null);
+        Session session = Session.getDefaultInstance(props, null);
 
-          store = session.getStore("imaps");
+         store = session.getStore("imaps");
           store.connect("mail.evozon.com","ionut.ciorba@evozon.com", "Solomon.923");
 
-          folder = (IMAPFolder) store.getFolder("Inbox"); // This doesn't work for other email account
+         folder = (IMAPFolder) store.getFolder("Inbox"); // This doesn't work for other email account
           //folder = (IMAPFolder) store.getFolder("inbox"); This works for both email account
 
 
-          if(!folder.isOpen())
+        if(!folder.isOpen())
           folder.open(Folder.READ_WRITE);
           Message[] messages = folder.getMessages();
           
           // last message
           Message lastMessage = folder.getMessage(folder.getMessageCount());
           
-          System.out.println("No of Messages : " + folder.getMessageCount());
+         System.out.println("No of Messages : " + folder.getMessageCount());
           System.out.println("No of Unread Messages : " + folder.getUnreadMessageCount());
           System.out.println(messages.length);
           for (int i=0; i < messages.length;i++) 
-          {
+         {
 
             System.out.println("*****************************************************************************");
             System.out.println("MESSAGE " + (i + 1) + ":");

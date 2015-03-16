@@ -1,20 +1,17 @@
 package com.pages;
 
-import ch.lambdaj.function.convert.Converter;
-import net.thucydides.core.annotations.DefaultUrl;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import net.thucydides.core.pages.WebElementFacade;
-
-import net.thucydides.core.annotations.findby.FindBy;
-
-import net.thucydides.core.pages.PageObject;
+import static ch.lambdaj.Lambda.convert;
 
 import java.util.List;
 
-import static ch.lambdaj.Lambda.convert;
+import net.thucydides.core.annotations.findby.FindBy;
+import net.thucydides.core.pages.PageObject;
+import net.thucydides.core.pages.WebElementFacade;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+
+import ch.lambdaj.function.convert.Converter;
 
 //@DefaultUrl("http://en.wiktionary.org/wiki/Wiktionary:Main_Page")
 //@DefaultUrl("http://192.168.1.68:9090/login")
@@ -84,10 +81,11 @@ public class DictionaryPage extends PageObject {
 	 
 
 	
-	 public List<String> getDefinitions() { WebElementFacade definitionList =
-	 find(By.cssSelector("ol")); List<WebElement> results =
-	  definitionList.findElements(By.tagName("li")); return convert(results,
-	  toStrings()); }
+	 public List<String> getDefinitions() { 
+		 WebElementFacade definitionList = find(By.cssSelector("ol")); 
+		 List<WebElement> results = definitionList.findElements(By.tagName("li")); 
+		 return convert(results, toStrings()); 
+		 }
 	  
 	  private Converter<WebElement, String> toStrings() { return new
 	  Converter<WebElement, String>() { public String convert(WebElement from)

@@ -21,7 +21,9 @@ import org.openqa.selenium.WebDriver;
 //import Utile.EmailPage;
 
 
+
 import com.pages.EmailPage;
+import com.steps.Email_Steps;
 //import com.LoginTest;
 import com.steps.LoginSteps;
 //import com.steps.NewVacationTestSteps;
@@ -35,7 +37,7 @@ public class MailTest {
 	public WebDriver webdriver;
 
 	@ManagedPages(defaultUrl = "http://192.168.1.68:9090")
-	public Pages pages;
+	//public Pages pages;
 	
 	@Steps 
 	public Newrequest_Steps newrequestTestSteps;
@@ -48,7 +50,7 @@ public class MailTest {
 	//public LoginTest loginTest;
 	 
 	@Steps
-	public EmailPage emailPageSteps;
+	public Email_Steps emailPageSteps;
 	
 	@Test
 	public void checkingIfMailWasReceived() throws ParseException, MessagingException, IOException{

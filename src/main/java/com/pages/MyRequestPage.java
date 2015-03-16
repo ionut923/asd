@@ -70,8 +70,7 @@ public class MyRequestPage extends PageObject {
 	}
 
 	public void checkFilters(String filter, String filterName) {
-		// List<WebElement> daysList = getDriver().findElements(
-		// By.cssSelector(("tr td[class*='col-3 col-my.request.column.header.day.number']")));
+		
 
 		List<WebElement> vacationTypeList = getDriver().findElements(
 				By.cssSelector("tr td[id*='evovacation'][class*='col-4']"));

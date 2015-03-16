@@ -64,12 +64,13 @@ public class VacationsReportPage extends PageObject {
     
     @FindBy(css="a[href$='view-vacations']")
     private WebElementFacade viewVacations;
-    public void clicksViewVacations(){
-    	viewVacations.click();
-    }
     
     @FindBy(css="[class='content-title']")
     private WebElementFacade pageTitle;
+    
+    public void clicksViewVacations(){
+    	viewVacations.click();
+    }
     
     public void enter_firstName(String firstname) {
     	firsttNameTab.sendKeys(firstname);

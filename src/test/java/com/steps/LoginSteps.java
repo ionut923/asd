@@ -43,6 +43,7 @@ public class LoginSteps extends ScenarioSteps {
     public void opens_vacation_tab(){
     	loginPage.click_vacation_button();
     }
+    
     @StepGroup
     public void login(String username, String password){
     	is_the_login_page();

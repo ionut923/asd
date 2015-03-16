@@ -78,10 +78,12 @@ public class VacationsReportSteps extends ScenarioSteps {
     public void is_the_vacations_report_page() {
     	vacationsReportPage.open();
     }*/
+    @Step
     public void clicksVacationsReport() {
     	vacationsReportPage.vacationsReport_click();
     }
     
+    @Step
     public void clicksExportReport() {
     	vacationsReportPage.exportReport_click();
     }

@@ -35,7 +35,7 @@ public class MyFreeDaysPage extends PageObject {
 	@FindBy(css = "a[href*='vacation']")
 	private WebElementFacade vacation_button;
 
-	@FindBy(css = "a[href*='http://192.168.1.68:9090/vacation?p_p_id=evovacation_WAR_EvoVacationportlet&p_p_lifecycle=0&p_p_state=normal&p_p_mode=view&p_p_col_id=column-1&p_p_col_count=1&_evovacation_WAR_EvoVacationportlet_backURL=%2Fvacation&_evovacation_WAR_EvoVacationportlet_menuItem=my-free-days']")
+	@FindBy(css= "a[href$='my-free-days']")
 	private WebElementFacade Myfreedays_button;
 
 	@FindBy(xpath = "//td[text()='Free days given this year']/following-sibling::td")
@@ -49,6 +49,9 @@ public class MyFreeDaysPage extends PageObject {
 
 	@FindBy(xpath = "//td[text()='Total available free days']/following-sibling::td")
 	private WebElementFacade TotalAvailablefreedays;
+	
+	//@FindBy(css= "a[href$='my-free-days']")
+	//private WebElementFacade TotalAvailablefreedays;
 
 	public void enter_username(String username) {
 		userInput.sendKeys(username);

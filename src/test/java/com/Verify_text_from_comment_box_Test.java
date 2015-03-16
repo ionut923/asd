@@ -1,5 +1,7 @@
 package com;
 
+//package com;
+
 import net.thucydides.core.annotations.Issue;
 import net.thucydides.core.annotations.ManagedPages;
 import net.thucydides.core.annotations.Pending;
@@ -20,12 +22,13 @@ import com.requirements.Application;
 import com.steps.EndUserSteps;
 import com.steps.MyFreeDaysSteps;
 import com.steps.Newrequest_Steps;
+import com.steps.Verify_text_from_comment_box_Steps;
 
 @Story(Application.Search.SearchByKeyword.class)
 @RunWith(ThucydidesParameterizedRunner.class)
 //@UseTestDataFrom("resources/dataTest.csv")
 @UseTestDataFrom("resources/Data_SetDate.csv")
-public class Newrequest_Test {
+public class Verify_text_from_comment_box_Test {
 
 	Integer start_month,end_day,start_year,end_month,end_dayx,end_year;
 	//int startdate=Integer.
@@ -36,7 +39,7 @@ public class Newrequest_Test {
 	public Pages pages;
 
 	@Steps
-	public Newrequest_Steps endUser;
+	public Verify_text_from_comment_box_Steps verify_text_from_comment_box_Steps;
 
 	/*
 	 * @Test public void
@@ -51,16 +54,21 @@ public class Newrequest_Test {
 	
 	@Test
 	public void myfreedayspage() throws ParseException, java.text.ParseException {
-		endUser.is_the_home_page();
-		endUser.sign_in();
-		endUser.enter_username("ionutciorba");
-		endUser.enter_password("Solomon.923");
-		endUser.login_click();
-		endUser.vacation_button_pressed();
-		endUser.click_Newrequest_button();
-		endUser.setStartDate(start_month,end_day,start_year);
-		endUser.setEndDate(end_month,end_day,end_year);
-		endUser.click_submit_button();
+		verify_text_from_comment_box_Steps.is_the_home_page();
+		verify_text_from_comment_box_Steps.sign_in();
+		verify_text_from_comment_box_Steps.enter_username("ionutciorba");
+		verify_text_from_comment_box_Steps.enter_password("Solomon.923");
+		verify_text_from_comment_box_Steps.login_click();
+		verify_text_from_comment_box_Steps.vacation_button_pressed();
+		verify_text_from_comment_box_Steps.click_Newrequest_button();
+		verify_text_from_comment_box_Steps.setStartDate(start_month,end_day,start_year);
+		verify_text_from_comment_box_Steps.setEndDate(end_month,end_day,end_year);
+		verify_text_from_comment_box_Steps.click_special_vacation_label();
+		verify_text_from_comment_box_Steps.click_on_other_option();
+		verify_text_from_comment_box_Steps.click_on_comment();
+		verify_text_from_comment_box_Steps.click_on_text_zone();
+		verify_text_from_comment_box_Steps.click_submit_button();
+		verify_text_from_comment_box_Steps.verify_text();
 		//endUser.click_myfreedays();
 		//endUser.verify_free_days_number();
 		

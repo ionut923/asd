@@ -1,6 +1,4 @@
-package com.pages;
-
-
+package com.steps;
 
 import java.io.*;
 import java.util.*;
@@ -20,7 +18,7 @@ import com.sun.mail.imap.IMAPFolder;
 
 
 
-public class EmailPage extends ScenarioSteps {
+public class Email_Steps extends ScenarioSteps {
 	
 
 	@Step

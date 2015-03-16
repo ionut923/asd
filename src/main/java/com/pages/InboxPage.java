@@ -48,9 +48,9 @@ public class InboxPage extends PageObject {
 				asf.append(split1[i]);
 			}
 		}
-		
+
 		int x = Integer.valueOf(asf.toString());
-return x;
+		return x;
 	}
 
 	public int select_total_value() {
@@ -74,8 +74,8 @@ return x;
 		word = split21[0].toString();
 		System.out.println(word);
 		int y = Integer.valueOf(word);
-return y;
-		
+		return y;
+
 	}
 
 	public void InboxButtonPressed() {
